@@ -9,7 +9,7 @@
             {% for book in books %}
                 <a href="{% url 'book.show' book.id %}" class="justify-self-center text-center my-4">
                     <div class="justify-self-center">
-                        <img src="{{ book.image.url }}" width="200">
+                        <img src="{{ book.thumbnail }}" width="200">
                     </div>
                     <p class="text-lg text-gray-700">{{ book.title }}</p>
                 </a>
