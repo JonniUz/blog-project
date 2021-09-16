@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'books',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -138,9 +139,9 @@ MEDIA_ROOT = 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LOGIN_REDIRECT_URL = '/book'
-LOGIN_URL = '/login'
-LOGOUT_REDIRECT_URL = '/login'
+LOGIN_REDIRECT_URL = 'book.all'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'login'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # EMAIL_FILE_PATH = 'tmp/app-messages' 

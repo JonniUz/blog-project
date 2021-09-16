@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block nav_title %}Register{% endblock  %}
+
+
+{% block content %}
+
+<section class="">
+
+<form class="bg-gray-100 p-4 rounded shadow" method="post" action="{% url 'register' %}">
+{% csrf_token %}
+
+<div class="flex justify-between py-2">
+    <div class="mr-4">{{ form.username.label_tag }}</div>
+    <div>{{ form.username }}</div>
+</div>
+
+
+<div class="flex justify-between py-2">
+    <div class="mr-4">{{ form.email.label_tag }}</div>
+    <div>{{ form.email }}</div>
+</div>
+
+<div class="flex justify-between py-2">
+    <div class="mr-4">{{ form.password1.label_tag }}</div>
+    <div>{{ form.password1 }}</div>
+</div>
+
+<div class="flex justify-between py-2">
+    <div class="mr-4">{{ form.password2.label_tag }}</div>
+    <div>{{ form.password2 }}</div>
+</div>
+
+
+
+<input type="submit" value="Register" class="py-1 px-2 mt-5 bg-green-400 text-white rounded w-full cursor-pointer hover:bg-green-800">
+<input type="hidden" name="next" value="{{ next }}">
+
+<p class="text-sm mt-5"><a href="{% url 'login' %}">Already have account?</a></p>
+
+</form>
+</section>
+
+{# Assumes you setup the password_reset view in your URLconf #}
+
+{% endblock %}
