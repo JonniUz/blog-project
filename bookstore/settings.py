@@ -26,15 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'v$5a)&%s2)05bbykgqn-v8hj&%$kx9s!uv@m1bjxb(q71*u8bp')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['my-bookstore-project.herokuapp.com']
 
 
 '''
-os.environ.get('DJANGO_DEBUG', '') == 'True'
 
-'my-bookstore-project.herokuapp.com'
 
 , '127.0.0.1'
 '''
