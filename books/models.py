@@ -18,7 +18,7 @@ class Book(models.Model):
     shortDescription = models.CharField(max_length=2505, null=True)
     longDescription = models.TextField(null=True)
     authors = models.ManyToManyField('Author')
-    thumbnail = models.CharField(max_length=2055)
+    thumbnail = models.CharField(max_length=2055, null=True, blank=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     added_at = models.DateTimeField(auto_now_add=True)
 
