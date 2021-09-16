@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'v$5a)&%s2)05bbykgqn-v8hj&%$kx9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'True'
 
-ALLOWED_HOSTS = ['my-bookstore-project.herokuapp.com']
+ALLOWED_HOSTS = ['my-bookstore-project.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -145,7 +145,14 @@ LOGOUT_REDIRECT_URL = '/login'
 # EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # EMAIL_FILE_PATH = 'tmp/app-messages' 
 
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '80ca99d8f893e2'
-EMAIL_HOST_PASSWORD = '965e061a2073f9'
-EMAIL_PORT = '2525'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'joevega3574@gmail.com'
+EMAIL_HOST_PASSWORD = 'Scarpion83574'
+EMAIL_PORT = 587
+
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = '80ca99d8f893e2'
+# EMAIL_HOST_PASSWORD = '965e061a2073f9'
+# EMAIL_PORT = '2525'
