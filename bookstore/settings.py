@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'v$5a)&%s2)05bbykgqn-v8hj&%$kx9s!uv@m1bjxb(q71*u8bp')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
 
-# DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'True'
+DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'True'
 
 # ALLOWED_HOST = []
 ALLOWED_HOSTS = ['my-bookstore-project.herokuapp.com', '127.0.0.1']
@@ -100,7 +100,7 @@ DATABASES = {
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-    
+
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 # Password validation
