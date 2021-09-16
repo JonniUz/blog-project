@@ -26,16 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'v$5a)&%s2)05bbykgqn-v8hj&%$kx9s!uv@m1bjxb(q71*u8bp')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'True'
+DEBUG = False
 
-ALLOWED_HOSTS = ['my-bookstore-project.herokuapp.com']
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'True'
+
+# ALLOWED_HOST = []
+ALLOWED_HOSTS = ['my-bookstore-project.herokuapp.com', '127.0.0.1']
 
 
-'''
-
-
-, '127.0.0.1'
-'''
 # Application definition
 
 INSTALLED_APPS = [
@@ -83,18 +81,28 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-if os.environ.get('DATABASE_URL'):
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=500)
-    }
-else:
-    DATABASES = {
+
+# if os.environ.get('DATABASE_URL'):
+#     DATABASES = {
+#         'default': dj_database_url.config(conn_max_age=500)
+#     }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
+    
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
